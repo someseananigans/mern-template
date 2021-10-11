@@ -2,9 +2,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-
-import './App.css'
-// import { } from './pages'
+import { Home } from './pages'
 
 
 const App = () => {
@@ -13,7 +11,7 @@ const App = () => {
     <div id="main">
       <Switch>
         <Route exact path='/' >
-          {/* <Home /> */}
+          <Home />
         </Route>
         {/* <Page404 /> */}
       </Switch>

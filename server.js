@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const { join } = require('path')
 // database
-const syncDB = require('./db')
+const syncDB = require('./config')
 const { User } = require('./models')
 // authentication / strategy
 const passport = require('passport')
@@ -31,8 +31,8 @@ passport.use(new JwtStrategy(options, ({ id }, cb) => {
   User.findById(id)
     // .populate('posts')
     .then(user => cb(null, user))
-    .catch(err => cb(err))))
-}
+    .catch(err => cb(err))
+}))
 
 app.use(require('./controllers'))
 
@@ -43,5 +43,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 syncDB()
-  .then(() => app.listen(process.env.PORT || 3000))
+  .then(() => {
+    console.log('server running')
+    app.listen(process.env.PORT || 3001)
+  })
   .catch(err => console.log(err))
