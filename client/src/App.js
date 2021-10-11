@@ -1,18 +1,24 @@
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route, Redirect
+  Route,
+  Switch
 } from 'react-router-dom'
 
+import './App.css'
+// import { } from './pages'
 
-function App() {
+
+const App = () => {
+
   return (
-    <Router>
+    <div id="main">
       <Switch>
-
+        <Route exact path='/' >
+          {/* <Home /> */}
+        </Route>
+        {/* <Page404 /> */}
       </Switch>
-    </Router>
+    </div>
   )
 }
 
-export default App;
+export default App
